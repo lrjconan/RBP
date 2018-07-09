@@ -1,0 +1,29 @@
+---
+exp_name: Hypergrad
+exp_dir: exp/hypergrad
+runner: HypergradRunner
+use_gpu: true
+gpus: [0]
+seed: 1234
+dataset:
+  name: MNIST
+  path: data/mnist
+model:
+  name: HypergradNet
+  grad_method: Neumann_RBP
+  # grad_method: RBP
+  # grad_method: TBPTT
+  # grad_method: BPTT
+  truncate_iter: 50
+  lr: -1.0
+  momentum: 0.0
+  num_sgd_step: 100
+  batch_size: 200
+  mlp_hidden: [784, 50, 50, 50, 10]
+train:  
+  meta_optimizer: Adam
+  meta_lr: 0.05
+  max_meta_iter: 100
+  snapshot_epoch: 1000
+  is_resume: false
+  resume_model: None

@@ -1,0 +1,39 @@
+---
+exp_name: Hopfield
+exp_dir: exp/hopfield
+runner: HopfieldRunner
+use_gpu: true
+gpus: [0]
+seed: 1234
+dataset:
+  name: MNIST
+  path: data/mnist
+  num_imgs: 10
+  corrupt_level: 0.5
+model:
+  name: HopfieldNet
+  input_dim: 784
+  hidden_dim: 1024
+  num_update: 50
+  # grad_method: Neumann_RBP
+  # grad_method: CG_RBP
+  # grad_method: RBP
+  # grad_method: TBPTT
+  grad_method: BPTT
+  truncate_iter: 20
+train:
+  optimizer: Adam
+  lr_decay: 0.1
+  lr_decay_steps: [10000]
+  num_workers: 0
+  max_epoch: 1000
+  batch_size: 1
+  display_iter: 10
+  snapshot_epoch: 1000
+  valid_epoch: 10
+  lr: 1.0e-3
+  wd: 0.0
+  momentum: 0.9
+  shuffle: true
+  is_resume: false
+  resume_model: None
