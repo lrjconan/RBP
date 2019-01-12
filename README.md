@@ -1,5 +1,5 @@
 # RBP
-This is the PyTorch implementation of [Recurrent Back Propagation](https://arxiv.org/pdf/1803.06396.pdf) as described in the following paper:
+This is the PyTorch implementation of [Recurrent Back Propagation](https://arxiv.org/pdf/1803.06396.pdf) as described in the following ICML 2018 paper:
 
 ```
 @article{liao2018reviving,
